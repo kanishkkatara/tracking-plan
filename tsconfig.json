@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "outDir": "./dist",
+    "esModuleInterop": true
+  },
+  "types": ["node", "@nestjs/common"]
+}
