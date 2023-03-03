@@ -5,9 +5,6 @@ export class Event {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ type: "int" })
-  tracking_plan_id: number;
-
   @Column({ type: "varchar" })
   name: string;
 

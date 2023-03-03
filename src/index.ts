@@ -3,7 +3,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import trackingPlanRoute from "./routes/tracking.plan.route";
 import "reflect-metadata";
-import pool from "./repository/db";
+import pool from "./config/db.config";
 
 const app = express();
 const port = 3000;
