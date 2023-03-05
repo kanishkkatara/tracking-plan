@@ -6,14 +6,15 @@ import trackingPlanEventMappingService from "./tracking.plan.event.mapping.servi
 import logger from "../config/logger";
 
 /**
-Retrieves all tracking plans and their events from the database
-@returns {Promise<TrackingPlan[]>} - An array of tracking plans with their associated events
+  Retrieves all tracking plans and their events from the database
+  @returns {Promise<TrackingPlan[]>} - An array of tracking plans with their associated events
 */
 const getAllTrackingPlans = async () => {
   logger.info("Fetching all tracking plans...");
   const rawData = await trackingPlanRepository.getAllTrackingPlans();
   logger.info(`Retrieved ${rawData.length} tracking plan(s) from the database`);
-  const trakingPlanData = rawData.reduce(
+  logger.debug(`rawData: ${JSON.stringify(rawData)}`);
+  const trackingPlanData = rawData.reduce(
     (
       acc,
       {
@@ -50,13 +51,14 @@ const getAllTrackingPlans = async () => {
     },
     []
   );
-  return trakingPlanData;
+  logger.debug(`trackingPlanData: ${JSON.stringify(trackingPlanData)}`);
+  return trackingPlanData;
 };
 
 /**
-Creates a new tracking plan and associated events in the database
-@param {TrackingPlanModel} trackingPlanData - The data for the new tracking plan and its events
-@returns {Promise<TrackingPlan>} - The created tracking plan object
+  Creates a new tracking plan and associated events in the database
+  @param {TrackingPlanModel} trackingPlanData - The data for the new tracking plan and its events
+  @returns {Promise<TrackingPlan>} - The created tracking plan object
 */
 const createTrackingPlan = async (trackingPlanData: TrackingPlanModel) => {
   const trackingPlan: TrackingPlan =

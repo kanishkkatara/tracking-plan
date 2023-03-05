@@ -5,13 +5,13 @@ const Joi = require("joi");
 
 const eventSchema = Joi.object({
   name: Joi.string().required().min(1),
-  description: Joi.string(),
+  description: Joi.string().allow(""),
   rules: Joi.string().required(),
 });
 
 const trackingPlanSchema = Joi.object({
   name: Joi.string().required().min(1),
-  description: Joi.string(),
+  description: Joi.string().allow(""),
   events: Joi.array().items(eventSchema),
 });
 
