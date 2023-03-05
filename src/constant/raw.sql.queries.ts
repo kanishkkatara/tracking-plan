@@ -1,4 +1,12 @@
-const getAllTrackingPlansQuery = `SELECT * from tracking_plan`;
+const getAllTrackingPlansQuery = `
+  SELECT tp.name AS tracking_plan_name, 
+  e.name AS event_name, 
+  e.description AS event_description, 
+  e.rules AS event_rules
+  FROM tracking_plan tp 
+  JOIN tracking_plan_event_mapping tpm ON tp.id = tpm.tracking_plan_id 
+  JOIN event e ON tpm.event_id = e.id;
+`;
 
 const createTrackingPlanQuery = `INSERT INTO tracking_plan (name) VALUES ($1) RETURNING *`;
 
