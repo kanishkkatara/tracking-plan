@@ -1,10 +1,8 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
+import { Entity, Column } from "typeorm";
+import { BaseEntity } from "./base.entity";
 
 @Entity({ name: "tracking_plan_event_mapping" })
-export class TrackingPlanEventMapping {
-  @PrimaryGeneratedColumn()
-  id: number;
-
+export class TrackingPlanEventMapping extends BaseEntity {
   @Column({ type: "int" })
   tracking_plan_id: number;
 
