@@ -1,5 +1,6 @@
 const getAllTrackingPlansQuery = `
   SELECT tp.name AS tracking_plan_name, 
+  tp.description AS tracking_plan_description, 
   e.name AS event_name, 
   e.description AS event_description, 
   e.rules AS event_rules
@@ -8,7 +9,7 @@ const getAllTrackingPlansQuery = `
   JOIN event e ON tpm.event_id = e.id;
 `;
 
-const createTrackingPlanQuery = `INSERT INTO tracking_plan (name) VALUES ($1) RETURNING *`;
+const createTrackingPlanQuery = `INSERT INTO tracking_plan (name, description) VALUES ($1, $2) RETURNING *`;
 
 const createEventQuery = `INSERT INTO event (name, description, rules) VALUES ($1, $2, $3) RETURNING *`;
 

@@ -5,4 +5,7 @@ import { BaseEntity } from "./base.entity";
 export class TrackingPlan extends BaseEntity {
   @Column({ type: "varchar" })
   name: string;
+
+  @Column({ type: "varchar" })
+  description: string;
 }

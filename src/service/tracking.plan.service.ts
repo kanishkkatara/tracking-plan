@@ -9,7 +9,7 @@ const getAllTrackingPlans = async () => {
   const trakingPlanData = rawData.reduce(
     (
       acc,
-      { tracking_plan_name, event_name, event_description, event_rules }
+      { tracking_plan_name, tracking_plan_description, event_name, event_description, event_rules }
     ) => {
       const existingTrackingPlan = acc.find(
         (tp) => tp.tracking_plan_name === tracking_plan_name
@@ -23,6 +23,7 @@ const getAllTrackingPlans = async () => {
       } else {
         acc.push({
           tracking_plan_name,
+          description: tracking_plan_description,
           event: [
             {
               name: event_name,

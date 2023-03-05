@@ -17,6 +17,7 @@ const createTrackingPlan = async (trackingPlanData: TrackingPlanModel) => {
     return (
       await client.query(rawSqlQueries.createTrackingPlanQuery, [
         trackingPlanData.name,
+        trackingPlanData.description,
       ])
     ).rows[0];
   } finally {
