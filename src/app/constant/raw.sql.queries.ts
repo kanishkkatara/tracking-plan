@@ -9,7 +9,8 @@ const getAllTrackingPlansQuery = `
   e.rules AS event_rules
   FROM tracking_plan tp 
   LEFT JOIN tracking_plan_event_mapping tpm ON tp.id = tpm.tracking_plan_id 
-  LEFT JOIN event e ON tpm.event_id = e.id;
+  LEFT JOIN event e ON tpm.event_id = e.id
+  WHERE tp.is_deleted = false AND e.is_deleted = false;
 `;
 
 /**
