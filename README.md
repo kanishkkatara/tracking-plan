@@ -1,5 +1,6 @@
 # Tracking Plan App
 This is a sample application for generating tracking plans and their associated events. It consists of a front-end React app and a back-end Node.js app.
+
 <img width="813" alt="image" src="https://user-images.githubusercontent.com/58228944/222961588-af9baeb4-383e-4103-adec-7fbbe512e213.png">
 
 ## Setting up the database
