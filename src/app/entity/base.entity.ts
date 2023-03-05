@@ -4,9 +4,9 @@ import { PrimaryGeneratedColumn } from "typeorm";
 export abstract class BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
-  isDeleted: boolean;
+  is_deleted: boolean;
 
   constructor() {
-    this.isDeleted = false;
+    this.is_deleted = false;
   }
 }
