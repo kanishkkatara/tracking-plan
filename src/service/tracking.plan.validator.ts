@@ -12,7 +12,7 @@ const eventSchema = Joi.object({
 const trackingPlanSchema = Joi.object({
   name: Joi.string().required().min(1),
   description: Joi.string(),
-  events: Joi.array().items(eventSchema).min(1),
+  events: Joi.array().items(eventSchema),
 });
 
 const validateTrackingPlanData = async (
@@ -25,6 +25,5 @@ const validateTrackingPlanData = async (
 };
 
 export default {
-  trackingPlanSchema,
   validateTrackingPlanData,
 };
