@@ -25,7 +25,7 @@ CREATE TABLE tracking_plan (
 
 CREATE TABLE event (
   id SERIAL PRIMARY KEY,
-  name VARCHAR NOT NULL,
+  name VARCHAR NOT NULL UNIQUE,
   description VARCHAR,
   rules VARCHAR NOT NULL,
   is_deleted BOOLEAN DEFAULT false

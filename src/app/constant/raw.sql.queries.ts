@@ -28,9 +28,15 @@ const createEventQuery = `INSERT INTO event (name, description, rules) VALUES ($
 */
 const createTrackingPlanEventMappingQuery = `INSERT INTO tracking_plan_event_mapping (tracking_plan_id, event_id) VALUES ($1, $2) RETURNING *`;
 
+/**
+  Query to get event by name.
+*/
+const geEventByNameQuery = `SELECT * FROM event WHERE name = $1`;
+
 export default {
   getAllTrackingPlansQuery,
   createTrackingPlanQuery,
   createEventQuery,
   createTrackingPlanEventMappingQuery,
+  geEventByNameQuery,
 };

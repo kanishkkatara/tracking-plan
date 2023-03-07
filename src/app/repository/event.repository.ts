@@ -1,22 +1,22 @@
 import rawSqlQueries from "../constant/raw.sql.queries";
 import { EventModel } from "../model/event.model";
-import pool from "../config/db.config";
 
-const createEvent = async (event: EventModel) => {
-  const client = await pool.connect();
-  try {
-    return (
-      await client.query(rawSqlQueries.createEventQuery, [
-        event.name,
-        event.description,
-        event.rules,
-      ])
-    ).rows;
-  } finally {
-    client.release();
-  }
+const createEvent = async (client: any, event: EventModel) => {
+  return (
+    await client.query(rawSqlQueries.createEventQuery, [
+      event.name,
+      event.description,
+      event.rules,
+    ])
+  ).rows;
+};
+
+const geEventByName = async (client: any, event: EventModel) => {
+  return (await client.query(rawSqlQueries.geEventByNameQuery, [event.name]))
+    .rows;
 };
 
 export default {
   createEvent,
+  geEventByName,
 };
